@@ -1,0 +1,28 @@
+## You may face key error for permissions.
+## Here is the way how you can fix it.
+
+C:\Users\Lenovo>ssh -i D:\Users\Lenovo\Downloads\key_timtech.pem ec2-user@35.78.227.142
+The authenticity of host '35.78.227.142 (35.78.227.142)' can't be established.
+ED25519 key fingerprint is SHA256:JIovis6LcXmhPbae+iC/b8rFj3iIWi7aZhd/2dmzuZg.
+This host key is known by the following other names/addresses:
+    C:\Users\Lenovo/.ssh/known_hosts:32: ec2-35-78-227-142.ap-northeast-1.compute.amazonaws.com
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '35.78.227.142' (ED25519) to the list of known hosts.
+Bad permissions. Try removing permissions for user: NT AUTHORITY\\Authenticated Users (S-1-5-11) on file D:/Users/Lenovo/Downloads/key_timtech.pem.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions for 'D:\\Users\\Lenovo\\Downloads\\key_timtech.pem' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "D:\\Users\\Lenovo\\Downloads\\key_timtech.pem": bad permissions
+ec2-user@35.78.227.142: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+
+## !!! Open powershell NOT CMD.
+$keyPath = "D:\Users\Lenovo\Downloads\**Your_Key**.pem"
+icacls $keyPath /inheritance:r
+icacls $keyPath /remove "BUILTIN\Users"
+icacls $keyPath /remove "NT AUTHORITY\Authenticated Users"
+icacls $keyPath /remove "Everyone"
+
+## Then you can log in again
