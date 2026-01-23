@@ -24,5 +24,6 @@ icacls $keyPath /inheritance:r
 icacls $keyPath /remove "BUILTIN\Users"
 icacls $keyPath /remove "NT AUTHORITY\Authenticated Users"
 icacls $keyPath /remove "Everyone"
+icacls $keyPath /grant "$env:USERNAME:F"
 
 ## Then you can log in again
