@@ -1,0 +1,12 @@
+## SQS + Lamda
+## it is Cost effective and event driven architecture
+## SQS can handle large number of messages and Lamda can process them as they arrive
+## Lamda can be triggered by SQS to process messages in real-time
+
+## Beanstalk is like a PaaS service
+## it abstracts the underlying infrastructure and allows developers to focus on writing code
+## it automatically handles capacity provisioning, load balancing, scaling, and application health monitoring.
+
+## CloudFormation is Infrastructure as Code (IaC) service
+## it allows you to define and provision AWS infrastructure using code
+## it helps in version control, automation, and repeatability of infrastructure deployment.
